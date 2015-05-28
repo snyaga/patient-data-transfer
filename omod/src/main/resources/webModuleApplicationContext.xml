@@ -25,8 +25,15 @@
 	 
 	<!-- Annotation based controllers -->
 	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
-	
+
+	<!-- uiframework bean config -->
+
+	<bean class="org.openmrs.ui.framework.StandardModuleUiConfiguration">
+		<property name="moduleId" value="patientdatatransfer"/>
+	</bean>
+
 	<context:component-scan base-package="org.openmrs.module.patientdatatransfer.web.controller" />
- 
-		
+
+
+
 </beans>
