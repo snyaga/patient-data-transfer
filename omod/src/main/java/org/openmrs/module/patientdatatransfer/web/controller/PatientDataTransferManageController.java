@@ -15,11 +15,21 @@ package org.openmrs.module.patientdatatransfer.web.controller;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.openmrs.Encounter;
+import org.openmrs.Patient;
+import org.openmrs.annotation.Authorized;
+import org.openmrs.api.EncounterService;
+import org.openmrs.api.PatientService;
 import org.openmrs.api.context.Context;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import  javax.servlet.http.HttpSession;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * The main controller.
@@ -29,8 +39,23 @@ public class  PatientDataTransferManageController {
 	
 	protected final Log log = LogFactory.getLog(getClass());
 	
-	@RequestMapping(value = "/module/patientdatatransfer/manage", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/module/patientdatatransfer/manage.form", method = RequestMethod.GET)
 	public void manage(ModelMap model) {
 		model.addAttribute("user", Context.getAuthenticatedUser());
+	}*/
+
+
+	@RequestMapping(value = "/module/patientdatatransfer/manage", method = RequestMethod.POST)
+	public void manage(ModelMap model,
+					   @RequestParam(value = "patientId", required = true) String patientId) {
+
+		PatientService patientService = Context.getPatientService();
+		Patient patient = patientService.getPatientByUuid(patientId);
+		//List<Patient> patient = Context.getPatientService().getPatientByUuid(patientId);
+		model.addAttribute("patient", patient);
+
+		//return "redirect:display.form";
+
 	}
 }
+
