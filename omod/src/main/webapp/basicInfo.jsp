@@ -2,19 +2,22 @@
 <%@ include file="/WEB-INF/template/header.jsp"%>
 
 <%@ include file="template/localHeader.jsp"%>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Patient History Import</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
     <!-- Stylesheet -->
 
-    <openmrs htmlInclude file="moduleResources/patientdatatransfer/resources/assets/style.css"></openmrs>
+    <openmrs htmlInclude file="/moduleResources/patientdatatransfer/resources/assets/style.css"></openmrs>
 
     <!-- Scripts -->
 
-    <openmrs htmlInclude file="moduleResources/patientdatatransfer/resources/assets/jquery.js"></openmrs>
+    <openmrs htmlInclude file="/moduleResources/patientdatatransfer/resources/assets/jquery.js"></openmrs>
 
-    <openmrs htmlInclude file="moduleResources/patientdatatransfer/resources/assets/identifier.js"></openmrs>
+    <openmrs htmlInclude file="/moduleResources/patientdatatransfer/resources/assets/identifier.js"></openmrs>
 
   <!--  <link rel="stylesheet" type="text/css" href="style.css" />
     <script language="javascript" type="text/javascript"
@@ -27,21 +30,17 @@
 <body>
 <div id="wrapper">
     <div id="header"></div>
-    <div id="MainMenu">
-        <ul>
-            <li><a href="">View Imports Summary</a></li>
 
-        </ul>
         <br>
         <br>
     </div>
 
     <div id="bodycolumn">
         <blockquote>
-            <h1>Basic Information</h1>
+            <h1>Create Data Import Request</h1>
         </blockquote>
 
-        <p>Hello ${user.systemId}!</p>
+        <p>Hello ${user.systemId}! Please Enter the required basic Information</p>
         <br>
         <br>
         <form>
@@ -69,6 +68,7 @@
                 <p><input type="button" id="btn" value="Import Data" size="15" /><br />
                 </p>
             </div>
+
         </form>
         <div class="lb"></div>
         <div id="result"></div>
@@ -78,3 +78,6 @@
 </div>
 </div>
 </body>
+</html>
+
+<%@ include file="/WEB-INF/template/footer.jsp"%>
