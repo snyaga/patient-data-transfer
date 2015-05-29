@@ -39,11 +39,13 @@ public class  PatientDataTransferManageController {
 	
 	protected final Log log = LogFactory.getLog(getClass());
 	
-	/*@RequestMapping(value = "/module/patientdatatransfer/manage.form", method = RequestMethod.GET)
+	@RequestMapping(value = "/module/patientdatatransfer/manage.form", method = RequestMethod.GET)
 	public void manage(ModelMap model) {
 		model.addAttribute("user", Context.getAuthenticatedUser());
-	}*/
+	}
 
+
+/* >>>Not using this for now<<<<
 
 	@RequestMapping(value = "/module/patientdatatransfer/manage", method = RequestMethod.POST)
 	public void manage(ModelMap model,
@@ -56,6 +58,11 @@ public class  PatientDataTransferManageController {
 
 		//return "redirect:display.form";
 
+	}*/
+
+	@RequestMapping(value = "/module/patientdatatransfer/basicInfo.form", method = RequestMethod.GET)
+	public void requestForm(ModelMap model) {
+		model.addAttribute("user", Context.getAuthenticatedUser());
 	}
 }
 

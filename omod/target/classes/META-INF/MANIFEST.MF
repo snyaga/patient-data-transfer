@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
+Built-By: dhis
+Build-Jdk: 1.6.0_33
+Created-By: Apache Maven 3.0.5
 Archiver-Version: Plexus Archiver
-Created-By: Apache Maven
-Built-By: susan
-Build-Jdk: 1.7.0_80
 

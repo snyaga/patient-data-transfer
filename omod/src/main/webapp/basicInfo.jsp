@@ -5,11 +5,23 @@
 <head>
     <title>Patient History Import</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <!-- Stylesheet -->
+
+    <openmrs htmlInclude file="moduleResources/patientdatatransfer/resources/assets/style.css"></openmrs>
+
+    <!-- Scripts -->
+
+    <openmrs htmlInclude file="moduleResources/patientdatatransfer/resources/assets/jquery.js"></openmrs>
+
+    <openmrs htmlInclude file="moduleResources/patientdatatransfer/resources/assets/identifier.js"></openmrs>
+
+  <!--  <link rel="stylesheet" type="text/css" href="style.css" />
     <script language="javascript" type="text/javascript"
             src="assets/jquery.js"></script>
     <script type="text/javascript" src="assets/identifier.js">
     </script>
+   -->
 </head>
 
 <body>
@@ -28,6 +40,10 @@
         <blockquote>
             <h1>Basic Information</h1>
         </blockquote>
+
+        <p>Hello ${user.systemId}!</p>
+        <br>
+        <br>
         <form>
             <div id="in">
                 <p><label>Gender</label> <select id="gender" >
@@ -59,5 +75,6 @@
 
 
 
-
+</div>
+</div>
 </body>
