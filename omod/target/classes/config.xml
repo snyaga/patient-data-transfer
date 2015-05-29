@@ -49,5 +49,15 @@
 	</messages>
 	<!-- /Internationalization -->
 
+	<!-- requires uiframework -->
+
+	<require_modules>
+		<require_module>
+			org.openmrs.module.uiframework
+		</require_module>
+	</require_modules>
+
+	<!-- /requires uiframework -->
+
 </module>
 
