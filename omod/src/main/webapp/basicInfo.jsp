@@ -4,27 +4,46 @@
 <%@ include file="template/localHeader.jsp"%>
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
     <!-- Stylesheet -->
 
-    <openmrs: htmlInclude file="/moduleResources/patientdatatransfer/resources/assets/style.css"/>
+    <openmrs:htmlInclude file="/module/patientdatatransfer/resources/assets/style.css"/>
 
     <!-- Scripts -->
 
-    <openmrs: htmlInclude file="/moduleResources/patientdatatransfer/resources/assets/jquery.js"/>
+    <openmrs:htmlInclude file="/module/patientdatatransfer/resources/assets/jquery.js"/>
 
-    <openmrs: htmlInclude file="/moduleResources/patientdatatransfer/resources/assets/identifier.js"/>
+
+    <openmrs:htmlInclude file="/module/patientdatatransfer/resources/assets/identifier.js"/>
+
+    <!-- for some reason script not picked up. added it below. will fix later.
+       -->
 
   <!--  <link rel="stylesheet" type="text/css" href="style.css" />
-    <script language="javascript" type="text/javascript"
-            src="assets/jquery.js"></script>
-    <script type="text/javascript" src="assets/identifier.js">
-    </script>
    -->
+
+    <script language="javascript" type="text/javascript">
+        function CheckPatient(val){
+            var element=document.getElementById('ID');
+            if(val=='ID')
+                element.style.display='block';
+            else
+                element.style.display='none';
+
+            var element=document.getElementById('clinicNo');
+            if(val=='clinicNo')
+                element.style.display='block';
+            else
+                element.style.display='none';
+        }
+
+
+    </script>
+
 </head>
 
 <body>
@@ -43,7 +62,7 @@
         <p>Hello ${user.systemId}! Please Enter the required basic Information</p>
         <br>
         <br>
-        <form>
+        <form method="POST" action="<c:url value="/module/patientdatatransfer/manage" />">
             <div id="in">
                 <p><label>Gender</label> <select id="gender" >
                     <option value=m>Male</option>
@@ -76,7 +95,7 @@
 
 
 </div>
-</div>
+
 </body>
 </html>
 
