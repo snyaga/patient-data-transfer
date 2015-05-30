@@ -11,13 +11,13 @@
 
     <!-- Stylesheet -->
 
-    <openmrs htmlInclude file="/moduleResources/patientdatatransfer/resources/assets/style.css"></openmrs>
+    <openmrs: htmlInclude file="/moduleResources/patientdatatransfer/resources/assets/style.css"/>
 
     <!-- Scripts -->
 
-    <openmrs htmlInclude file="/moduleResources/patientdatatransfer/resources/assets/jquery.js"></openmrs>
+    <openmrs: htmlInclude file="/moduleResources/patientdatatransfer/resources/assets/jquery.js"/>
 
-    <openmrs htmlInclude file="/moduleResources/patientdatatransfer/resources/assets/identifier.js"></openmrs>
+    <openmrs: htmlInclude file="/moduleResources/patientdatatransfer/resources/assets/identifier.js"/>
 
   <!--  <link rel="stylesheet" type="text/css" href="style.css" />
     <script language="javascript" type="text/javascript"
