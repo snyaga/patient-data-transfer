@@ -45,20 +45,7 @@ public class  PatientDataTransferManageController {
 	}
 
 
-/* >>>Not using this for now<<<<
 
-	@RequestMapping(value = "/module/patientdatatransfer/manage", method = RequestMethod.POST)
-	public void manage(ModelMap model,
-					   @RequestParam(value = "patientId", required = true) String patientId) {
-
-		PatientService patientService = Context.getPatientService();
-		Patient patient = patientService.getPatientByUuid(patientId);
-		//List<Patient> patient = Context.getPatientService().getPatientByUuid(patientId);
-		model.addAttribute("patient", patient);
-
-		//return "redirect:display.form";
-
-	}*/
 
 	@RequestMapping(value = "/module/patientdatatransfer/basicInfo.form", method = RequestMethod.GET)
 	public void requestForm(ModelMap model) {
