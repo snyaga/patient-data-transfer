@@ -23,9 +23,8 @@ import org.openmrs.api.PatientService;
 import org.openmrs.api.context.Context;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
 import  javax.servlet.http.HttpSession;
 
 import java.util.Date;
@@ -36,20 +35,37 @@ import java.util.List;
  */
 @Controller
 public class  PatientDataTransferManageController {
-	
+
 	protected final Log log = LogFactory.getLog(getClass());
-	
+
 	@RequestMapping(value = "/module/patientdatatransfer/manage.form", method = RequestMethod.GET)
 	public void manage(ModelMap model) {
 		model.addAttribute("user", Context.getAuthenticatedUser());
 	}
 
 
-
-
 	@RequestMapping(value = "/module/patientdatatransfer/basicInfo.form", method = RequestMethod.GET)
 	public void requestForm(ModelMap model) {
 		model.addAttribute("user", Context.getAuthenticatedUser());
 	}
-}
 
+
+	/*Export Patient Data to JSON file*/
+
+	@RequestMapping(value = "module/patientdatatransfer/display.form", method = RequestMethod.GET)
+	@ResponseBody public Patient display(@RequestParam(value="ID", required = false) String ID,
+										 @RequestParam(value = "clinicNo", required = false) String clinicNo) {
+
+		PatientService patientService = Context.getPatientService();
+		Patient patient;
+
+		if(ID !=null) {
+			patient = patientService.getPatientByUuid(ID);
+		}
+		else {
+			patient = patientService.getPatientByUuid(clinicNo);
+		}
+		return patient;
+	}
+
+}
