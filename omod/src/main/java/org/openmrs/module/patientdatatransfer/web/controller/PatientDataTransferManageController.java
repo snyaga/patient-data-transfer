@@ -58,9 +58,13 @@ public class  PatientDataTransferManageController {
 
 		PatientService patientService = Context.getPatientService();
 		Patient patient;
-		patient = patientService.getPatientByUuid(ID);
-		patient = patientService.getPatientByUuid(clinicNo);
 
+		if(ID !=null) {
+			patient = patientService.getPatientByUuid(ID);
+		}
+		else {
+			patient = patientService.getPatientByUuid(clinicNo);
+		}
 		return patient;
 	}
 
