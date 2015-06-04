@@ -52,7 +52,7 @@ public class  PatientDataTransferManageController {
 
 	/*Export Patient Data to JSON file*/
 
-	@RequestMapping(value = "/display", method = RequestMethod.GET)
+	@RequestMapping(value = "module/patientdatatransfer/display.form", method = RequestMethod.GET)
 	@ResponseBody public Patient display(@RequestParam(value="ID", required = false) String ID,
 										 @RequestParam(value = "clinicNo", required = false) String clinicNo) {
 
