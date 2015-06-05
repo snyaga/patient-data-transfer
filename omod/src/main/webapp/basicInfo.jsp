@@ -58,11 +58,11 @@
         <blockquote>
             <h1>Create Data Import Request</h1>
         </blockquote>
-
+        <hr>
         <p>Hello ${user.systemId}! Please Enter the required basic Information</p>
         <br>
         <br>
-        <form method="POST" action="<c:url value="/module/patientdatatransfer/display" />">
+        <form method="POST" action="<c:url value="/module/patientdatatransfer/importInfo" />">
             <div id="in">
                 <p><label>Gender</label> <select id="gender" >
                     <option value=m>Male</option>
@@ -73,7 +73,7 @@
                     <option value=kbu>Kiambu</option>
                     <option value=mga>Murang'a</option>
                 </select></p>
-                <p><label>Date of Birth</label> <input type="date" id="dob"</p>
+                <P><label>Date of Birth</label> <input type="date" id="dob"/></p>
 
                 <p><label>Select Unique ID </label><select name="patientuid" id="patientuid" onchange="CheckPatient(this.value);">
                     <option value="" disabled selected>Select an ID type</option>
