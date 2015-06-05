@@ -68,4 +68,6 @@ public class  PatientDataTransferManageController {
 		return patient;
 	}
 
+	/* Import Patient Data from JSON and add patient to Database */
+
 }
