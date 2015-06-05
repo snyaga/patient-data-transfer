@@ -45,10 +45,10 @@ public class  PatientDataTransferManageController {
 	}
 
 
-	@RequestMapping(value = "/module/patientdatatransfer/basicInfo.form", method = RequestMethod.GET)
-	@ResponseBody public ImportReq requestForm(ModelMap model, @RequestParam(value ="gender") String gender,
-										  @RequestParam(value="county") String county,
-										  @RequestParam(value = "dob") Date dob,
+	@RequestMapping(value = "/module/patientdatatransfer/display.form", method = RequestMethod.POST)
+	 @ResponseBody public ImportReq requestForm(ModelMap model, @RequestParam(value ="gender", required = false) String gender,
+										  @RequestParam(value="county", required = false) String county,
+										  @RequestParam(value = "dob", required = false) Date dob,
 										  @RequestParam(value="ID", required = false) String ID,
 										  @RequestParam(value = "clinicNo", required = false) String clinicNo
 	) {
@@ -72,9 +72,14 @@ public class  PatientDataTransferManageController {
 		}
 
 
+	@RequestMapping(value = "/module/patientdatatransfer/basicInfo.form", method = RequestMethod.GET)
+	public void requestForm(ModelMap model){
+		model.addAttribute("user", Context.getAuthenticatedUser());
+
+	}
 	/*Export Patient Data to JSON file*/
 
-	@RequestMapping(value = "module/patientdatatransfer/display.form", method = RequestMethod.GET)
+/*	@RequestMapping(value = "module/patientdatatransfer/display.form", method = RequestMethod.GET)
 	@ResponseBody public Patient display(@RequestParam(value="ID", required = false) String ID,
 										 @RequestParam(value = "clinicNo", required = false) String clinicNo) {
 
@@ -88,7 +93,7 @@ public class  PatientDataTransferManageController {
 			patient = patientService.getPatientByUuid(clinicNo);
 		}
 		return patient;
-	}
+	}*/
 
 	/* Import Patient Data from JSON and add patient to Database */
 

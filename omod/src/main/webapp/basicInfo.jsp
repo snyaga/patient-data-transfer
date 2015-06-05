@@ -9,16 +9,16 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-    <!-- Stylesheet -->
+    <!-- Stylesheet
 
-    <openmrs:htmlInclude file="/module/patientdatatransfer/resources/assets/style.css"/>
+    <%--<openmrs:htmlInclude file="/module/patientdatatransfer/resources/assets/style.css"/>--%>
 
     <!-- Scripts -->
 
-    <openmrs:htmlInclude file="/module/patientdatatransfer/resources/assets/jquery.js"/>
+    <%--<openmrs:htmlInclude file="/module/patientdatatransfer/resources/assets/jquery.js"/>--%>
 
 
-    <openmrs:htmlInclude file="/module/patientdatatransfer/resources/assets/identifier.js"/>
+    <%--<openmrs:htmlInclude file="/module/patientdatatransfer/resources/assets/identifier.js"/>--%>
 
     <!-- for some reason script not picked up. added it below. will fix later.
        -->
@@ -62,7 +62,7 @@
         <p>Hello ${user.systemId}! Please Enter the required basic Information</p>
         <br>
         <br>
-        <form method="POST" action="<c:url value="/module/patientdatatransfer/basicInfo" />">
+        <form method="POST" action="<c:url value="/module/patientdatatransfer/display" />">
             <div id="in">
                 <p><label>Gender</label> <select id="gender" >
                     <option value=m>Male</option>
@@ -75,7 +75,7 @@
                 </select></p>
                 <p><label>Date of Birth</label> <input type="date" id="dob"</p>
 
-                <p><label>Select Unique ID</label><select name="patientuid" id="patientuid" onchange="CheckPatient(this.value);">
+                <p><label>Select Unique ID </label><select name="patientuid" id="patientuid" onchange="CheckPatient(this.value);">
                     <option value="" disabled selected>Select an ID type</option>
                     <option value="ID">National ID</option>
                     <option value="clinicNo">Patient Clinic Number</option>
@@ -83,7 +83,7 @@
                 <div id="ID" style="display: none;"><strong>Enter National ID: </strong><input type="text" name="ID" /><br /></div>
                 <div id="clinicNo" style="display: none;"><strong>Enter Patient Clinic Number: <strong><input type="text" name="clinicNo" /><br /></div>
                 </p>
-                <p><label>MFL Code</label><select disabled id="mfl">
+                <p><label>MFL Code: </label><select disabled id="mfl">
                     <option value="" disabled selected>Select previous clinic</option>
                     <option value=clinic1>Clinic code</option>
                     <option value=clinic2>Clinic code</option>
