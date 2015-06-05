@@ -83,7 +83,7 @@
                 <div id="ID" style="display: none;"><strong>Enter National ID: </strong><input type="text" name="ID" /><br /></div>
                 <div id="clinicNo" style="display: none;"><strong>Enter Patient Clinic Number: <strong><input type="text" name="clinicNo" /><br /></div>
                 </p>
-                <p><label>MFL Code</label><select id="mfl">
+                <p><label>MFL Code</label><select disabled id="mfl">
                     <option value="" disabled selected>Select previous clinic</option>
                     <option value=clinic1>Clinic code</option>
                     <option value=clinic2>Clinic code</option>
