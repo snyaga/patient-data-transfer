@@ -21,6 +21,7 @@ import org.openmrs.annotation.Authorized;
 import org.openmrs.api.EncounterService;
 import org.openmrs.api.PatientService;
 import org.openmrs.api.context.Context;
+import org.openmrs.module.patientdatatransfer.ImportReq;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -45,9 +46,30 @@ public class  PatientDataTransferManageController {
 
 
 	@RequestMapping(value = "/module/patientdatatransfer/basicInfo.form", method = RequestMethod.GET)
-	public void requestForm(ModelMap model) {
-		model.addAttribute("user", Context.getAuthenticatedUser());
-	}
+	@ResponseBody public ImportReq requestForm(ModelMap model, @RequestParam(value ="gender") String gender,
+										  @RequestParam(value="county") String county,
+										  @RequestParam(value = "dob") Date dob,
+										  @RequestParam(value="ID", required = false) String ID,
+										  @RequestParam(value = "clinicNo", required = false) String clinicNo
+	) {
+				model.addAttribute("user", Context.getAuthenticatedUser());
+
+				ImportReq request = new ImportReq();
+
+				request.setGender(gender);
+				request.setCounty(county);
+				request.setDob(dob);
+				if(ID!=null){
+					request.setNationalID(ID);
+					request.setClinicNo(null);
+				}
+				else {
+					request.setNationalID(null);
+					request.setClinicNo(clinicNo);
+				}
+
+			return request;
+		}
 
 
 	/*Export Patient Data to JSON file*/
