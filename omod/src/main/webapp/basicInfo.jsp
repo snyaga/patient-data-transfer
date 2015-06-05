@@ -62,7 +62,7 @@
         <p>Hello ${user.systemId}! Please Enter the required basic Information</p>
         <br>
         <br>
-        <form method="POST" action="<c:url value="/module/patientdatatransfer/manage" />">
+        <form method="POST" action="<c:url value="/module/patientdatatransfer/basicInfo" />">
             <div id="in">
                 <p><label>Gender</label> <select id="gender" >
                     <option value=m>Male</option>
@@ -83,8 +83,17 @@
                 <div id="ID" style="display: none;"><strong>Enter National ID: </strong><input type="text" name="ID" /><br /></div>
                 <div id="clinicNo" style="display: none;"><strong>Enter Patient Clinic Number: <strong><input type="text" name="clinicNo" /><br /></div>
                 </p>
+                <p><label>MFL Code</label><select id="mfl">
+                    <option value="" disabled selected>Select previous clinic</option>
+                    <option value=clinic1>Clinic code</option>
+                    <option value=clinic2>Clinic code</option>
+                    <option value=clinic3>Clinic code</option>
+                    <option value=clinic4>Clinic code</option>
+                </select>
 
-                <p><input type="button" id="btn" value="Import Data" size="15" /><br />
+                </p>
+
+                <p><input type="submit" id="btn" value="Import Data" size="15" /><br />
                 </p>
             </div>
 
