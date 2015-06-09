@@ -45,6 +45,8 @@ public class  PatientDataTransferManageController {
 	}
 
 
+	/* Patient Data Import Request as JSON*/
+
 	@RequestMapping(value = "/module/patientdatatransfer/importInfo.form", method = RequestMethod.GET)
 	 @ResponseBody public ImportReq requestForm(ModelMap model, @RequestParam(value ="gender", required = false) String gender,
 										  @RequestParam(value="county", required = false) String county,

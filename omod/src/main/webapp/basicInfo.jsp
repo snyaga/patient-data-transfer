@@ -62,7 +62,7 @@
         <p>Hello ${user.systemId}! Please Enter the required basic Information</p>
         <br>
         <br>
-        <form method="POST" action="<c:url value="/module/patientdatatransfer/importInfo" />">
+        <form method="POST" action="<c:url value="/module/patientdatatransfer/importInfo.form" />">
             <div id="in">
                 <p><label>Gender</label> <select id="gender" >
                     <option value=m>Male</option>
