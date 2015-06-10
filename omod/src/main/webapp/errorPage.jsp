@@ -3,6 +3,13 @@
 
 <%@ include file="template/localHeader.jsp"%>
 
-<p>Hello ${user.systemId}!</p>
+<h2>
+	Error
+</h2>
+
+<p>
+	<c:out value="${ errorMessage }" />
+	
+</p>
 
 <%@ include file="/WEB-INF/template/footer.jsp"%>

@@ -15,20 +15,14 @@ package org.openmrs.module.patientdatatransfer.web.controller;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.openmrs.Encounter;
 import org.openmrs.Patient;
-import org.openmrs.annotation.Authorized;
-import org.openmrs.api.EncounterService;
 import org.openmrs.api.PatientService;
 import org.openmrs.api.context.Context;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
-import  javax.servlet.http.HttpSession;
-
 import java.util.Date;
-import java.util.List;
 
 /**
  * The main controller.
@@ -44,12 +38,40 @@ public class  PatientDataTransferManageController {
 	}
 
 
+	/* Patient Data Import Request as JSON*/
+
+/*	@RequestMapping(value = "/module/patientdatatransfer/importInfo.form", method = RequestMethod.GET)
+	 @ResponseBody public ImportReq requestForm(ModelMap model, @RequestParam(value ="gender", required = false) String gender,
+										  @RequestParam(value="county", required = false) String county,
+										  @RequestParam(value = "dob", required = false) Date dob,
+										  @RequestParam(value="ID", required = false) String ID,
+										  @RequestParam(value = "clinicNo", required = false) String clinicNo
+	) {
+				model.addAttribute("user", Context.getAuthenticatedUser());
+
+				ImportReq request = new ImportReq();
+
+				request.setGender(gender);
+				request.setCounty(county);
+				request.setDob(dob);
+				if(ID!=null){
+					request.setNationalID(ID);
+					request.setClinicNo(null);
+				}
+				else {
+					request.setNationalID(null);
+					request.setClinicNo(clinicNo);
+				}
+
+			return request;
+		}
+
+
 	@RequestMapping(value = "/module/patientdatatransfer/basicInfo.form", method = RequestMethod.GET)
-	public void requestForm(ModelMap model) {
+	public void requestForm(ModelMap model){
 		model.addAttribute("user", Context.getAuthenticatedUser());
-	}
 
-
+	}*/
 	/*Export Patient Data to JSON file*/
 
 	@RequestMapping(value = "module/patientdatatransfer/display.form", method = RequestMethod.GET)
@@ -67,5 +89,7 @@ public class  PatientDataTransferManageController {
 		}
 		return patient;
 	}
+
+	/* Import Patient Data from JSON and add patient to Database */
 
 }

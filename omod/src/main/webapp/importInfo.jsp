@@ -3,8 +3,7 @@
 
 <%@ include file="template/localHeader.jsp"%>
 
-
-
+<p>Data Import Request Successfully Sent!</p>
 
 
 

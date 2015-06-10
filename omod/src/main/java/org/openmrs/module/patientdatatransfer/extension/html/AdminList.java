@@ -24,31 +24,33 @@ import org.openmrs.module.web.extension.AdministrationSectionExt;
  * "patientdatatransfer.title" heading. 
  */
 public class AdminList extends AdministrationSectionExt {
-	
+
 	/**
 	 * @see AdministrationSectionExt#getMediaType()
 	 */
 	public Extension.MEDIA_TYPE getMediaType() {
 		return Extension.MEDIA_TYPE.html;
 	}
-	
+
 	/**
 	 * @see AdministrationSectionExt#getTitle()
 	 */
 	public String getTitle() {
 		return "patientdatatransfer.title";
 	}
-	
+
 	/**
 	 * @see AdministrationSectionExt#getLinks()
 	 */
 	public Map<String, String> getLinks() {
 		LinkedHashMap<String, String> map = new LinkedHashMap<String, String>();
-		map.put("/module/patientdatatransfer/manage.form", "patientdatatransfer.manage");
-		map.put("/module/patientdatatransfer/basicInfo.form", "patientdatatransfer.basicInfo");
-        map.put("/module/patientdatatransfer/exportInfo.form", "patientdatatransfer.exportInfo");
-        map.put("/module/patientdatatransfer/summary.form", "patientdatatransfer.summary");
+		map.put("/module/patientdatatransfer/home.form", "Home");
+		map.put("/module/patientdatatransfer/settings.form", "Settings");
+		map.put("/module/patientdatatransfer/recentTransactions.form", "Recent Transactions");
+		map.put("/module/patientdatatransfer/currentRequests.form", "Request Patient Data");
+		map.put("/module/patientdatatransfer/outgoingRequests.form", "Outgoing Requests");
+		map.put("/module/patientdatatransfer/incomingRequests.form", "Incoming Requests");
 		return map;
 	}
-	
+
 }
