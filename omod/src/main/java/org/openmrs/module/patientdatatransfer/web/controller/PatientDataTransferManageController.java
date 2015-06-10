@@ -15,21 +15,14 @@ package org.openmrs.module.patientdatatransfer.web.controller;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.openmrs.Encounter;
 import org.openmrs.Patient;
-import org.openmrs.annotation.Authorized;
-import org.openmrs.api.EncounterService;
 import org.openmrs.api.PatientService;
 import org.openmrs.api.context.Context;
-import org.openmrs.module.patientdatatransfer.ImportReq;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
-import  javax.servlet.http.HttpSession;
-
 import java.util.Date;
-import java.util.List;
 
 /**
  * The main controller.
@@ -47,7 +40,7 @@ public class  PatientDataTransferManageController {
 
 	/* Patient Data Import Request as JSON*/
 
-	@RequestMapping(value = "/module/patientdatatransfer/importInfo.form", method = RequestMethod.GET)
+/*	@RequestMapping(value = "/module/patientdatatransfer/importInfo.form", method = RequestMethod.GET)
 	 @ResponseBody public ImportReq requestForm(ModelMap model, @RequestParam(value ="gender", required = false) String gender,
 										  @RequestParam(value="county", required = false) String county,
 										  @RequestParam(value = "dob", required = false) Date dob,
@@ -78,7 +71,7 @@ public class  PatientDataTransferManageController {
 	public void requestForm(ModelMap model){
 		model.addAttribute("user", Context.getAuthenticatedUser());
 
-	}
+	}*/
 	/*Export Patient Data to JSON file*/
 
 	@RequestMapping(value = "module/patientdatatransfer/display.form", method = RequestMethod.GET)
