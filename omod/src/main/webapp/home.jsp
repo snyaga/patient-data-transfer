@@ -3,18 +3,23 @@
 
 <%@ include file="template/localHeader.jsp"%>
 
-<h2>
+<h1>
 	<spring:message code="patientdatatransfer.home" />
-</h2>
+</h1>
 
-<%--
-<h3>Database Tasks</h3>
-<p><u>DEV functions:</u><br/>
-	<a href="${pageContext.request.contextPath}/module/patientdatatransfer/home.form?func=addRole">Create default roles</a>
-</p>
- --%>
+
  
  <img src="<%=request.getContextPath()%>/moduleResources/patientdatatransfer/hospital-building-green.png"/>
- <br/>Welcome to the Patient Data Transfer Module!
- 
+ <br/>
+ <br/>
+<h2>Patient History Management</h2>
+<br/>
+<hr/>
+<div>
+<p>Welcome to the Patient Data Transfer Module! This module provides the following services: </p>
+<ul id="services">
+ <li>Import Patient Data from another Clinic</li>
+ <li>Export Patient Data to another Clinic</li>
+ </ul>
+ </div>
 <%@ include file="/WEB-INF/template/footer.jsp"%>
