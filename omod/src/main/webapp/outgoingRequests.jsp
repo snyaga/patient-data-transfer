@@ -10,7 +10,7 @@
 </h2>
 <%! SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy"); %>
 <div class="patientdatatransfer">
-<b class="boxHeader"><spring:message code="patientdatatransfer.outgoingRequests" /></b>
+<b class="boxHeader" style="background-color:#563d7c"><spring:message code="patientdatatransfer.outgoingRequests" /></b>
 <div class="box">
 	<form id="outgoingRequestsForm" method="post">
 		<div id="outgoingRequestsList" align="center">
