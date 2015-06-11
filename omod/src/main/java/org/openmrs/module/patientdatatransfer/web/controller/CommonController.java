@@ -1,5 +1,7 @@
 package org.openmrs.module.patientdatatransfer.web.controller;
 
+import java.util.regex.Pattern;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openmrs.api.context.Context;
@@ -8,13 +10,11 @@ import org.openmrs.module.patientdatatransfer.api.PatientDataTransferService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.regex.Pattern;
-
 @Controller
 public class CommonController {
 
 	private static Log log = LogFactory.getLog(NewRequestPageController.class);
-	
+
 	// Helper function to redirect to the error page.
 	public static ModelAndView redirectToErrorPage(Exception e, String errorMessage)
 	{
@@ -35,12 +35,12 @@ public class CommonController {
 	public static ModelAndView validateDenyReason(String denyReason) {
 		if(denyReason == null) {
 			return CommonController.redirectToErrorPage(null, "NULL encountered when checking deny reasons");
-		}			
-		if (!denyReason.equals("")) {	
+		}
+		if (!denyReason.equals("")) {
 			if (denyReason.length()>256){
 				return CommonController.redirectToErrorPage(null, "One of your deny reasons is over 256 characters long");
 			}
-				
+
 			if (!Pattern.matches("[0-9a-zA-Z[-'.!?,] ]+",denyReason)) {
 				return CommonController.redirectToErrorPage(null, "One of your deny reasons contains invalid characters");
 			}
@@ -48,6 +48,15 @@ public class CommonController {
 		return null;
 	}
 
+	public static void applyStatusToAllRequests(String[] requests, int status) {
+		PatientDataTransferService pdtService = Context.getService(PatientDataTransferService.class);
+		for (String str_id : requests) {
+			// parse ID in string form to int, then use it to get the PDT request from DB
+			Integer int_id = Integer.parseInt(str_id);
+			PatientDataRequest pdr = pdtService.getRequestById(int_id);
+			pdr.setStatus(status);
+			pdtService.updateRequest(pdr);
+		}
+	}
 
-	
 }

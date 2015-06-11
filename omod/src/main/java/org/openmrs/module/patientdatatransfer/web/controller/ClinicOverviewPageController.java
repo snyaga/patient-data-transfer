@@ -14,7 +14,9 @@
 package org.openmrs.module.patientdatatransfer.web.controller;
 
 import org.openmrs.api.context.Context;
-
+import org.openmrs.module.patientdatatransfer.PDTClinic;
+import org.openmrs.module.patientdatatransfer.PDTSetting;
+import org.openmrs.module.patientdatatransfer.api.DirectoryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,10 +28,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class ClinicOverviewPageController {
-	
+
 	@RequestMapping(value="/module/patientdatatransfer/clinicOverview", method=RequestMethod.GET)
 	public void showForm(ModelMap model) {
-
+		DirectoryService dirService = Context.getService(DirectoryService.class);
+		PDTSetting localClinicName = dirService.getSettingByName(DirectoryService.localClinicSetting);
+		PDTClinic clinic = dirService.getClinicByDomainName(localClinicName.getValue());
+		String clinicURL = "/" + clinic.getUrlPrefix() + "/ws/rest/patientdatatransfer/clinic";
+		model.addAttribute("clinicURL", clinicURL);
 	}
-	
+
 }

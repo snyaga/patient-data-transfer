@@ -13,8 +13,15 @@
  */
 package org.openmrs.module.patientdatatransfer.api;
 
+import org.openmrs.Encounter;
+import org.openmrs.Patient;
+import org.openmrs.activelist.Allergy;
+import org.openmrs.activelist.Problem;
 import org.openmrs.api.OpenmrsService;
+import org.openmrs.module.patientdatatransfer.PatientDataRequest;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * This service exposes module's core functionality. It is a Spring managed bean which is configured in moduleApplicationContext.xml.
@@ -28,9 +35,47 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Transactional
 public interface PatientDataTransferService extends OpenmrsService {
-     
-	/*
-	 * Add service methods here
-	 * 
-	 */
+    public static final int PENDINGLOCALAPPROVAL =1;
+    public static final int SENTTOREMOTECLINIC=2;
+    public static final int RECEIVEDBYREMOTECLINIC =3;
+    public static final int APPROVEDBYREMOTECLINIC =4;
+    public static final int RETURNEDTOREQUESTINGCLINIC = 5;
+    public static final int TRANSFERCOMPLETE =6;
+    public static final int SENTDENYTOREQUESTINGCLINIC = 7;
+    
+    public static final int REJECTEDBYLOCALUSER = 11;
+    public static final int FAILEDTOSEND =12;
+    public static final int REJECTEDBYREMOTEUSER =13;
+    public static final int FAILEDTOAUGMENTDATA = 14;
+    public static final int FAILEDTORETURNDATA = 15;
+    
+    public static final int SENDING = 22;
+    public static final int RETURNING = 25;
+    
+	/* Request methods */
+	public List<PatientDataRequest> getRequests();
+	
+	public PatientDataRequest getRequestById(int id);
+	
+	public List<PatientDataRequest> getRequestsByUser(int userId);
+ 
+	public List<PatientDataRequest> getRequestsByStatus(int status);
+	
+    public void saveRequest(PatientDataRequest request);
+    
+    public void updateRequest(PatientDataRequest request);
+    
+    public void cleanPatient(Patient patient);
+	
+    public void cleanEncounter(Encounter encounter, Patient patient);
+    
+	public void cleanProblem(Problem problem, Patient patient);
+
+	public void cleanAllergy(Allergy allergy, Patient patient);
+	
+	public void setupSSLforKeyStore();
+    
+	public boolean isDNSValid(String hostname);
+
+	public void replaceRequestAtIdWithObject(int id, PatientDataRequest request);
 }

@@ -71,7 +71,7 @@ public class PatientDataRequest extends BaseOpenmrsObject implements Serializabl
 	
 	private String consentForm; // full path to the uploaded file
 	
-//	private PatientData data; // contains the actual patient data, in a TBD format. Not stored in DB, only augmented when sent, then on receipt is handled.
+	private PatientData data; // contains the actual patient data, in a TBD format. Not stored in DB, only augmented when sent, then on receipt is handled.
 	
 	private int status;
 	
@@ -266,15 +266,14 @@ public class PatientDataRequest extends BaseOpenmrsObject implements Serializabl
 		this.consentForm = consentForm;
 	}
 
-//	public PatientData getData() {
-//		return data;
-//	}
-//
-//	public void setData(PatientData data) {
-//		this.data = data;
-//	}
+	public PatientData getData() {
+		return data;
+	}
 
-/*	public int getStatus() {
+	public void setData(PatientData data) {
+		this.data = data;
+	}
+	public int getStatus() {
 		return status;
 	}
 	public void setStatus(int status) {
@@ -298,7 +297,7 @@ public class PatientDataRequest extends BaseOpenmrsObject implements Serializabl
 		this.validTo = validTo;
 	}
 	
-	/*public String getPrintStatus()
+	public String getPrintStatus()
 	{
 		switch(status)
 		{
@@ -322,7 +321,7 @@ public class PatientDataRequest extends BaseOpenmrsObject implements Serializabl
 				
 		}
 				
-	}*/
+	}
 	
 	public void setPrintStatus(String status) {
 		this.printStatus = status;
