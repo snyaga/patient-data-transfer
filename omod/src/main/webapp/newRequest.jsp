@@ -15,9 +15,9 @@
 	</c:choose>
 </h2>
 <openmrs:htmlInclude file="/scripts/calendar/calendar.js" />
-<div class="box" id="newRequestFormBox">
+<div class="box" id="newRequestFormBox" style="background-color: #729fcf; align-content: center;">
 <form method="POST" enctype="multipart/form-data">
-	<table>
+	<table style="font-size:20px; ">
 		<c:choose>
 		<c:when test="${not empty pdr}">
 			<input type="hidden" name="id" value="${pdr.id}" />
@@ -25,7 +25,7 @@
 		</c:choose>
 		<tr>
 			<td><spring:message code="patientdatatransfer.request.patientIdentifier" /> (<spring:message code="patientdatatransfer.newRequest.optional"/>)</td>
-			<td>
+			<td style="font-size:12px;">
 				<c:choose>
 				<c:when test="${not empty pdr}">
 				<input type="text" name="patientIdentifier" value="${pdr.patientIdentifier}"/>
