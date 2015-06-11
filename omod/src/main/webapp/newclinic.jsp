@@ -14,39 +14,38 @@
 <div class="box">
 	<form id="newClinicForm" method="post" style="padding-left: 25%; padding-right: 25%;">
 		<div id="newClinicDiv" align="center">
-			<table cellpadding="0" cellspacing="0" width="100%" id="newClinicTable" style="font-size:16px;">
+			<table  style="font-size:16px;">
+
 				<tr>
-					<td></td>
 					<td><spring:message code="patientdatatransfer.settings.clinicName"/></td>
 					<td><input type="text" size="32" maxlength="256" name="clinicName"></td>
 				</tr>
 				<tr>
-					<td></td>
 					<td><spring:message code="patientdatatransfer.settings.clinicDesc"/></td>
 					<td><input type="text" size="32" maxlength="256" name="clinicDesc"></td>
 				</tr>
 				<tr>
-					<td></td>
+
 					<td><spring:message code="patientdatatransfer.settings.clinicIPAddress"/></td>
 					<td><input type="text" size="32" maxlength="256" name="clinicIpAddress"></td>
 				</tr>
 				<tr>
-					<td></td>
+
 					<td><spring:message code="patientdatatransfer.settings.clinicPort"/></td>
 					<td><input type="text" size="5" maxlength="5" name="clinicPort"></td>
 				</tr>
 				<tr>
-					<td></td>
+
 					<td><spring:message code="patientdatatransfer.settings.clinicUrlPrefix"/></td>
 					<td><input type="text" size="32" maxlength="256" name="clinicUrlPrefix"></td>
 				</tr>
 				<tr>
-					<td></td>
+
 					<td><spring:message code="patientdatatransfer.settings.clinicLatitude"/></td>
 					<td><input type="text"  size="32" maxlength="32" name="clinicLatitude"></td>
 				</tr>
 				<tr>
-					<td></td>
+
 					<td><spring:message code="patientdatatransfer.settings.clinicLongitude"/></td>
 					<td><input type="text"  size="32" maxlength="32" name="clinicLongitude"></td>
 				</tr>
