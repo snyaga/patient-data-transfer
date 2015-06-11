@@ -36,7 +36,8 @@
 			`originalClinic` VARCHAR(256) NOT NULL ,
 			`requestingClinic` VARCHAR(256) NOT NULL ,
 			`requesterName` VARCHAR(256) NOT NULL ,
-			`signerName` VARCHAR(256) NULL ,
+            `requestedBy` INT NOT NULL ,
+            `signerName` VARCHAR(256) NULL ,
 			`signedBy` INT NULL ,
 			`signerMessage` VARCHAR(256) NULL ,
 			`remoteUserName` VARCHAR(256) NULL ,
@@ -46,7 +47,7 @@
 			`status` INT NOT NULL ,
 			`errorRetries` INT NOT NULL ,
 			`validTo` DATETIME NOT NULL ,
-			PRIMARY KEY (`id`, `validTo`)
+			PRIMARY KEY (`id`, `validTo`) ,
 			INDEX `requestedBy` (`requestedBy` ASC) ,
 			INDEX `signedBy` (`signedBy` ASC) ,
 			CONSTRAINT `requestedBy`
