@@ -10,7 +10,7 @@
 	<h2 style="text-align:center; font-size:20px;">
 		<spring:message code="patientdatatransfer.settings" />
 	</h2>
-<b class="boxHeader" style="text-align:center; font-size:20px; background-color: darkslateblue"><spring:message code="patientdatatransfer.settings.addClinic"/></b>
+<b class="boxHeader" style="text-align:center; font-size:20px; "><spring:message code="patientdatatransfer.settings.addClinic"/></b>
 <div class="box">
 	<form id="newClinicForm" method="post" style="padding-left: 25%; padding-right: 25%;">
 		<div id="newClinicDiv" align="center">

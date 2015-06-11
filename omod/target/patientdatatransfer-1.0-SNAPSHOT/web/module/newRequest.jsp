@@ -7,7 +7,7 @@
 
 <openmrs:htmlInclude file="/scripts/calendar/calendar.js" />
 <div class="box" id="newRequestFormBox"  style="background-color: transparent; ">
-	<h2 class="boxHeader" style="text-align:center; font-size:20px; background-color: ">
+	<h2 class="boxHeader" style="text-align:center; font-size:20px; background-color:#563d7c ">
 		<c:choose>
 			<c:when test="${not empty pdr}">
 				<spring:message code="patientdatatransfer.editRequest" />
