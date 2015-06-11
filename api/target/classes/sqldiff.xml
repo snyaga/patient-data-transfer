@@ -13,14 +13,70 @@
 			   calling this script
 	</help>
 
-<!-- 
+
 	<diff>
 		<version>1.0-SNAPSHOT</version>
 		<author>susan</author>
-		<date></date>
-		<description></description>
-		<sql></sql>
+		<date>11th June 2015</date>
+		<description>Initial Tables</description>
+
+		<sql>
+			CREATE  TABLE IF NOT EXISTS `openmrs`.`patientdatatransfer_request` (
+			`id` INT NOT NULL AUTO_INCREMENT ,
+			`requestingClinicId` INT NOT NULL ,
+			`dateRequested` DATETIME NOT NULL ,
+			`dateTransferred` DATETIME NULL ,
+			`givenName` VARCHAR(256) NOT NULL ,
+			`middleName` VARCHAR(256) NULL ,
+			`familyName` VARCHAR(256) NOT NULL ,
+			`birthDate` DATETIME NOT NULL,
+			`gender` CHAR NOT NULL ,
+			`patientIdentifier` VARCHAR(256) NULL ,
+			`phoneNumber` VARCHAR(256) NULL ,
+			`originalClinic` VARCHAR(256) NOT NULL ,
+			`requestingClinic` VARCHAR(256) NOT NULL ,
+			`requesterName` VARCHAR(256) NOT NULL ,
+            `requestedBy` INT NOT NULL ,
+            `signerName` VARCHAR(256) NULL ,
+			`signedBy` INT NULL ,
+			`signerMessage` VARCHAR(256) NULL ,
+			`remoteUserName` VARCHAR(256) NULL ,
+			`remoteUserId` INT NULL ,
+			`remoteMessage` VARCHAR(256) NULL ,
+			`consentForm` TEXT NULL ,
+			`status` INT NOT NULL ,
+			`errorRetries` INT NOT NULL ,
+			`validTo` DATETIME NOT NULL ,
+			PRIMARY KEY (`id`, `validTo`) ,
+			INDEX `requestedBy` (`requestedBy` ASC) ,
+			INDEX `signedBy` (`signedBy` ASC) ,
+			CONSTRAINT `requestedBy`
+			FOREIGN KEY (`requestedBy` )
+			REFERENCES `openmrs`.`users` (`user_id` )
+			ON DELETE NO ACTION
+			ON UPDATE CASCADE)
+			ENGINE = InnoDB;
+
+			CREATE  TABLE IF NOT EXISTS `openmrs`.`patientdatatransfer_clinic` (
+			`id` INT NOT NULL AUTO_INCREMENT ,
+			`name` VARCHAR(256) NOT NULL ,
+			`description` VARCHAR(256) NOT NULL ,
+			`ipAddress` VARCHAR(256) NOT NULL ,
+			`port` INT NOT NULL ,
+			`urlPrefix` VARCHAR(256) NOT NULL,
+			`latitude` FLOAT NOT NULL ,
+			`longitude` FLOAT NOT NULL ,
+			PRIMARY KEY (`id`) );
+
+			CREATE  TABLE IF NOT EXISTS `openmrs`.`patientdatatransfer_settings` (
+			`id` INT NOT NULL AUTO_INCREMENT ,
+			`name` VARCHAR(256) NOT NULL ,
+			`value` TEXT NOT NULL ,
+			PRIMARY KEY (`id`) );
+
+
+		</sql>
 	</diff>
- -->
-	
+
+
 </sqldiff>
