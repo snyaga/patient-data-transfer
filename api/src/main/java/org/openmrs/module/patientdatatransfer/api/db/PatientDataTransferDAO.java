@@ -13,14 +13,46 @@
  */
 package org.openmrs.module.patientdatatransfer.api.db;
 
+import org.openmrs.Encounter;
+import org.openmrs.Patient;
+import org.openmrs.activelist.Allergy;
+import org.openmrs.activelist.Problem;
+import org.openmrs.module.patientdatatransfer.PDTClinic;
+import org.openmrs.module.patientdatatransfer.PDTSetting;
+import org.openmrs.module.patientdatatransfer.PatientDataRequest;
 import org.openmrs.module.patientdatatransfer.api.PatientDataTransferService;
+
+import java.util.List;
 
 /**
  *  Database methods for {@link PatientDataTransferService}.
  */
 public interface PatientDataTransferDAO {
-	
-	/*
-	 * Add DAO methods here
-	 */
+
+	/* PatientDataTransferService methods*/
+	public List<PatientDataRequest> getRequests();
+	public void saveRequest(PatientDataRequest request);
+	public List<PatientDataRequest> getRequestsByUser(int userId);
+	public List<PatientDataRequest> getRequestsByStatus(int status);
+	public PatientDataRequest getRequestById(int id);
+	public void updateRequest(PatientDataRequest request);
+	public void replaceRequestAtIdWithObject(int id, PatientDataRequest request);
+
+	/* DirectoryService methods */
+	public List<PDTClinic> getClinics();
+	public void saveClinic(PDTClinic clinic);
+	public void updateClinic(PDTClinic clinic);
+	public void deleteClinicById(Integer id);
+	public List<PDTSetting> getSettings();
+	public PDTSetting getSettingByName(String name);
+	public PDTClinic getClinicByDomainName(String domainName);
+	public void saveSetting(PDTSetting setting);
+	public void updateSetting(PDTSetting setting);
+	public void deleteSettingById(Integer id);
+
+	/* methods for cleaning up deserialized data */
+	public void cleanPatient(Patient patient);
+	public void cleanEncounter(Encounter encounter, Patient patient);
+	public void cleanProblem(Problem problem, Patient patient);
+	public void cleanAllergy(Allergy allergy, Patient patient);
 }
