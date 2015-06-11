@@ -6,8 +6,8 @@
 
 
 <openmrs:htmlInclude file="/scripts/calendar/calendar.js" />
-<div class="box" id="newRequestFormBox" style="background-color: #729fcf; ">
-	<h2 style="text-align:center">
+<div class="box" id="newRequestFormBox" style="background-color: transparent; ">
+	<h2 style="text-align:center; font-size:20px;">
 		<c:choose>
 			<c:when test="${not empty pdr}">
 				<spring:message code="patientdatatransfer.editRequest" />
@@ -18,7 +18,7 @@
 		</c:choose>
 	</h2>
 <form method="POST" enctype="multipart/form-data" style="padding-left: 25%; padding-right: 25%;">
-	<table style="font-size:20px; ">
+	<table style="font-size:16px; ">
 		<c:choose>
 		<c:when test="${not empty pdr}">
 			<input type="hidden" name="id" value="${pdr.id}" />
@@ -155,10 +155,11 @@
 			<td colspan="2"><input type="checkbox" name="agreedToConsent" value="false"/><spring:message code="patientdatatransfer.newRequest.agreeText" /></td>
 		</tr>
 		<tr>
-			<td colspan="2"><input type="submit" value="<spring:message code="patientdatatransfer.newRequest.submit"/>"/></td>
+			<td colspan="2"><input type="submit" value="<spring:message code="patientdatatransfer.newRequest.submit"/>" class="btn btn-primary btn-lg "/></td>
 		</tr>
 	</table>
 </form>
 </div>
+
 
 <%@ include file="/WEB-INF/template/footer.jsp"%>
