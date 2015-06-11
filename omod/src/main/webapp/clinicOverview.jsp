@@ -379,12 +379,7 @@
 
 	<%@ include file="/WEB-INF/template/banner.jsp" %>
 
-	<%-- This is where the My Patients popup used to be. I'm leaving this placeholder here
-        as a reminder of where to put back an extension point when I've figured out what it should
-        look like. -DJ
-    <div id="popupTray">
-    </div>
-    --%>
+
 
 	<div id="content">
 

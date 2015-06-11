@@ -14,8 +14,8 @@
 <div class="box">
 	<form id="newClinicForm" method="post" style="padding-left: 25%; padding-right: 25%;">
 		<div id="newClinicDiv" align="center">
-			<table  style="font-size:16px;">
 
+			<table  style="border: magenta" cellspacing="10" width="100%" id="newClinicTable">
 				<tr>
 					<td><spring:message code="patientdatatransfer.settings.clinicName"/></td>
 					<td><input type="text" size="32" maxlength="256" name="clinicName"></td>
@@ -52,10 +52,16 @@
 				
 			</table>
 		</div>
+		<br/>
+		<hr/>
+		<br/>
+		<div align="center">
 		<input type="submit" value="<spring:message code="patientdatatransfer.settings.submitChanges"/>"  	name="action">
 		<input type="reset" value="<spring:message code="patientdatatransfer.settings.undoChanges"/>" 		name="unaction">
+	</div>
 	</form>
-	<a href="${pageContext.request.contextPath}/module/patientdatatransfer/newsetting.form"><spring:message code="patientdatatransfer.settings.addSetting"/></a>
+	<br/>
+	<hr/>
 	<a href="${pageContext.request.contextPath}/module/patientdatatransfer/settings.form"><spring:message code="patientdatatransfer.settings.title"/></a>
 </div>
 </div>
