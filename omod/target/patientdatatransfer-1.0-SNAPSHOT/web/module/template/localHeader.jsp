@@ -10,11 +10,6 @@
 		<spring:message code="patientdatatransfer.home" />
 	</a>
 	</li>
-	<li <c:if test='<%= request.getRequestURI().contains("/settings") %>'> active</c:if>">
-	<a href="${pageContext.request.contextPath}/module/patientdatatransfer/settings.form">
-		<spring:message code="patientdatatransfer.settings" />
-	</a>
-	</li>
 	<li <c:if test='<%= request.getRequestURI().contains("/recentTransactions") %>'>class="active"</c:if>>
 		<a href="${pageContext.request.contextPath }/module/patientdatatransfer/recentTransactions.form">
 			<spring:message code="patientdatatransfer.recentTransactions" />
@@ -35,6 +30,11 @@
 			<spring:message code="patientdatatransfer.incomingRequests" />
 		</a>
 		<pdt:first />
+	</li>
+	<li <c:if test='<%= request.getRequestURI().contains("/settings") %>'> active</c:if>">
+	<a href="${pageContext.request.contextPath}/module/patientdatatransfer/settings.form">
+		<spring:message code="patientdatatransfer.settings" />
+	</a>
 	</li>
 	<li <c:if test='<%= request.getRequestURI().contains("/clinicOverview") %>'> active</c:if>">
 	<a href="${pageContext.request.contextPath}/module/patientdatatransfer/clinicOverview.form">
