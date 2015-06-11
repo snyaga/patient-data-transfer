@@ -17,7 +17,7 @@
 
 <div class="patientdatatransfer">
 <form id="clinicsForm" method="post">
-<b class="boxHeader"><spring:message code="patientdatatransfer.settings.clinics" /></b>
+<b class="boxHeader" style="background-color:#563d7c"><spring:message code="patientdatatransfer.settings.clinics" /></b>
 	<div class="box">
 		<div id="clinicsDiv" align="center">
 			<table cellpadding="0" cellspacing="0" width="100%" id="clinicsTable">

@@ -18,7 +18,7 @@
 
 <c:forEach var="pdtRequest" items="${requests}" varStatus="varStatus">
 	<c:if test="${varStatus.first}">
-		<b class="boxHeader"><spring:message code="patientdatatransfer.currentPatientDataRequests" /></b>
+		<b class="boxHeader" style="background-color:#563d7c;"><spring:message code="patientdatatransfer.currentPatientDataRequests" /></b>
 		<div class="box" id="requestListing">
 			<table cellpadding="5" cellspacing="0">
 				<tdead>

@@ -11,7 +11,7 @@
 	<spring:message code="patientdatatransfer.recentTransactions" />
 </h2>
 <div class="patientdatatransfer">
-<b class="boxHeader"><spring:message code="patientdatatransfer.recentTransactions.incomingTitle" /></b>
+<b class="boxHeader" style = background-color:#563d7c;><spring:message code="patientdatatransfer.recentTransactions.incomingTitle" /></b>
 <div class="box">
 	<form class="recentTransactionForm" method="post">
 		<div class="recentTransactionsList" align="center">
@@ -62,7 +62,7 @@
 
 <!-- This is where the second table begins -->
 <div class="patientdatatransfer">
-<b class="boxHeader"><spring:message code="patientdatatransfer.recentTransactions.outgoingTitle" /></b>
+<b class="boxHeader" style="background-color:#563d7c;"><spring:message code="patientdatatransfer.recentTransactions.outgoingTitle" /></b>
 <div class="box">
 	<form class="recentTransactionForm" method="post">
 		<div class="recentTransactionsList" align="center">

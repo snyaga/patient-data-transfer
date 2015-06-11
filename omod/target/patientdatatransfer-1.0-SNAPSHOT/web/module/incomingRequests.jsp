@@ -10,7 +10,7 @@
 
 
 <div class="patientdatatransfer">
-<b class="boxHeader"><spring:message code="patientdatatransfer.incomingRequests" /></b>
+<b class="boxHeader" style = background-color:#563d7c;><spring:message code="patientdatatransfer.incomingRequests" /></b>
 <div class="box">
 	<form id="incomingRequestsForm" method="post">
 		<div id="incomingRequestsList" align="center">
