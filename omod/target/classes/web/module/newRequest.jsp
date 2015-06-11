@@ -4,19 +4,20 @@
 <openmrs:require privilege="Create New PDT Requests" otherwise="/login.htm" redirect="/module/patientdatatransfer/newRequest.form" />
 <%@ include file="template/localHeader.jsp"%>
 
-<h2>
-	<c:choose>
-	<c:when test="${not empty pdr}">
-	<spring:message code="patientdatatransfer.editRequest" />
-	</c:when>
-	<c:otherwise>
-	<spring:message code="patientdatatransfer.newRequest" />
-	</c:otherwise>
-	</c:choose>
-</h2>
+
 <openmrs:htmlInclude file="/scripts/calendar/calendar.js" />
-<div class="box" id="newRequestFormBox" style="background-color: #729fcf; align-content: center;">
-<form method="POST" enctype="multipart/form-data">
+<div class="box" id="newRequestFormBox" style="background-color: #729fcf; ">
+	<h2 style="text-align:center">
+		<c:choose>
+			<c:when test="${not empty pdr}">
+				<spring:message code="patientdatatransfer.editRequest" />
+			</c:when>
+			<c:otherwise>
+				<spring:message code="patientdatatransfer.newRequest" />
+			</c:otherwise>
+		</c:choose>
+	</h2>
+<form method="POST" enctype="multipart/form-data" style="padding-left: 25%; padding-right: 25%;">
 	<table style="font-size:20px; ">
 		<c:choose>
 		<c:when test="${not empty pdr}">
