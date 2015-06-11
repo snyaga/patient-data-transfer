@@ -7,11 +7,8 @@
 	<spring:message code="patientdatatransfer.settings" />
 </h2>
 
-<!--
-	<input type="button" name="changeSslSettings" onclick="document.getElementById('sslSettingsText').removeAttribute('readonly')">	
--->
 
-<a href="${pageContext.request.contextPath}/module/patientdatatransfer/settings.form?action=updateDirectory"><spring:message code="patientdatatransfer.settings.updateDirectory" /></a>
+
 <br/><br/>
 
 <a href="${pageContext.request.contextPath}/module/patientdatatransfer/newclinic.form"><spring:message code="patientdatatransfer.settings.addClinic"/></a>
@@ -66,45 +63,6 @@
 </div>
 <br/><br/>
 
-<a href="${pageContext.request.contextPath}/module/patientdatatransfer/newsetting.form"><spring:message code="patientdatatransfer.settings.addSetting"/></a>
-<br/><br/>
 
-<div class="patientdatatransfer">
-<form id="settingsForm" method="post">
-<b class="boxHeader"><spring:message code="patientdatatransfer.settings.settings" /></b>
-	<div class="box">		
-		<div id="settingsDiv" align="center">
-			<table cellpadding="0" cellspacing="0" width="100%" id="settingsTable">
-				<tr>
-					<td align="left"><strong><spring:message code="patientdatatransfer.settings.settingName" /></strong></td>
-					<td align="left"><strong><spring:message code="patientdatatransfer.settings.settingValue" /></strong></td>
-					<td align="left"><strong><spring:message code="patientdatatransfer.settings.deleteSetting" /></strong></td>
-				</tr>
-				<c:forEach var="setting" items="${settingsList}" varStatus="varStatus">				
-				<c:choose>
-					<c:when test="${(varStatus.count) % 2 == 0}">
-					<tr bgcolor="#E6E6E6">
-					</c:when>
-					<c:otherwise>
-					<tr>
-					</c:otherwise>
-				</c:choose>
-					<td align="left">
-						${setting.name}
-					</td>
-					<td align="left">
- 						${setting.value}
-					</td>
-					<td align="left">
-                    	<input type=checkbox name=settingsToRemoveId value=${setting.id} />
-               		</td>
-				</tr>
-				</c:forEach>	
-			</table>
-		</div>
-		<input type="submit" value="<spring:message code="patientdatatransfer.settings.submitChanges"/>" onclick="return confirm('<spring:message code="patientdatatransfer.settings.submitChanges.warning"/>')" name="action" />
-		<input type="reset" value="<spring:message code="patientdatatransfer.settings.undoChanges"/>" name="unaction" />
-	</form>
-</div>
-</div>
+
 <%@ include file="/WEB-INF/template/footer.jsp"%>
