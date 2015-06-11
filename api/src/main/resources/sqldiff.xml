@@ -29,7 +29,7 @@
 			`givenName` VARCHAR(256) NOT NULL ,
 			`middleName` VARCHAR(256) NULL ,
 			`familyName` VARCHAR(256) NOT NULL ,
-			`birthDate` DATETIME NOT NULL
+			`birthDate` DATETIME NOT NULL,
 			`gender` CHAR NOT NULL ,
 			`patientIdentifier` VARCHAR(256) NULL ,
 			`phoneNumber` VARCHAR(256) NULL ,
