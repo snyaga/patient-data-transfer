@@ -157,7 +157,7 @@
 				var i = 0;
 
 				// A function to create the marker and set up the event window
-				function createClinicMarker(point, name, id, isRevoked) {
+				function createClinicMarker(point, name, id) {
 					// set up a red and green hospital icon to use for displaying clinics on the map
 					var redIcon = new GIcon();
 					redIcon.iconSize = new GSize(32, 37);
@@ -172,12 +172,9 @@
 
 					var marker;
 					// Create the GMarker object, using the red or green icon
-					// based on the isRevoked parameter to this function.
-					if (isRevoked) {
-						marker = new GMarker(point, redIcon);
-					} else {
-						marker = new GMarker(point, greenIcon);
-					}
+
+					marker = new GMarker(point, greenIcon);
+
 					marker.tooltip = '<div class="tooltip">' + name + '</div>';
 
 					marker.id = id;
@@ -250,10 +247,8 @@
 						var id = clinicMarkers[i].getElementsByTagName("id")[0].firstChild.nodeValue;
 						var label = clinicMarkers[i].getElementsByTagName("name")[0].firstChild.nodeValue;
 						var port = clinicMarkers[i].getElementsByTagName("port")[0].firstChild.nodeValue;
-						var revoked = clinicMarkers[i].getElementsByTagName("isRevoked")[0].firstChild.nodeValue;
-						revoked = (revoked == "true") ? true : false;
 
-						createClinicMarker(new GLatLng(lat, lng), label, id, revoked);
+						createClinicMarker(new GLatLng(lat, lng), label, id);
 					}
 				}
 
@@ -270,19 +265,13 @@
 							var ipAddress = clinicMarkers[i].getElementsByTagName("ipAddress")[0].firstChild.nodeValue;
 							var port = clinicMarkers[i].getElementsByTagName("port")[0].firstChild.nodeValue;
 							var urlPrefix = clinicMarkers[i].getElementsByTagName("urlPrefix")[0].firstChild.nodeValue;
-							var revoked = clinicMarkers[i].getElementsByTagName("isRevoked")[0].firstChild.nodeValue;
-							revoked = (revoked == "true") ? true : false;
 
 							marker.showMapBlowup();
 							var html = '<b>' + name + '</b><br/>'
 									+ ipAddress
 									+ ':' + port + '<br/>'
 									+ '/' + urlPrefix + '/' + '<br/>';
-							if (revoked) {
-								html += 'Certificate <font color=\'red\'>REVOKED</font>';
-							} else {
-								html += 'Certificate <font color=\'green\'>VALID</font>';
-							}
+
 							marker.openInfoWindowHtml(html);
 						}
 					}
@@ -318,7 +307,7 @@
 				map.addControl(new GLargeMapControl());
 				map.addControl(new GOverviewMapControl());
 				map.enableDoubleClickZoom();
-				map.setCenter(new GLatLng(-1.940278, 29.873889), 5); // center at Rwanda
+				map.setCenter(new GLatLng(-1.2769279,36.8034154), 5); // center at Chiromo
 
 				// set up marker mouseover tooltip div
 				var tooltip = document.createElement("div");
