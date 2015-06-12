@@ -34,9 +34,10 @@
 
 	<!-- Maps hibernate file's, if present -->
 	<mappingFiles>
-				
-		PatientDataTransfer.hbm.xml
+
+		PatientDataRequest.hbm.xml
 		PDTClinic.hbm.xml
+		PDTSetting.hbm.xml
 				
 	</mappingFiles>
 

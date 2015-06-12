@@ -99,9 +99,13 @@
 					</c:forEach>
 				</table>
 			</div>
+			</div>
 			<input type="submit" value="<spring:message code="patientdatatransfer.settings.submitChanges"/>" onclick="return confirm('<spring:message code="patientdatatransfer.settings.submitChanges.warning"/>')" name="action" />
 			<input type="reset" value="<spring:message code="patientdatatransfer.settings.undoChanges"/>" name="unaction" />
 	</form>
 </div>
+<br/>
+<a href="${pageContext.request.contextPath}/module/patientdatatransfer/settings.form?action=updateDirectory"><spring:message code="patientdatatransfer.settings.updateDirectory" /></a>
+
 </div>
 <%@ include file="/WEB-INF/template/footer.jsp"%>
