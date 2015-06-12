@@ -103,4 +103,11 @@
 			</list>
 		</property>
 	</bean>
+
+	<bean name="PatientDataTransferAsyncHttp" class="org.openmrs.module.patientdatatransfer.PatientDataTransferAsyncHttp">
+		<constructor-arg type="org.springframework.core.task.TaskExecutor" ref="taskExecutor" />
+	</bean>
+
+	<bean id="taskExecutor" class="org.springframework.core.task.SimpleAsyncTaskExecutor">
+	</bean>
 </beans>

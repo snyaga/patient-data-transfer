@@ -12,7 +12,7 @@
 
 <br/>
 
-<a href="${pageContext.request.contextPath }/module/patientdatatransfer/newRequest.form"><spring:message code="patientdatatransfer.newRequest" /></a>
+<a href="${pageContext.request.contextPath }/module/patientdatatransfer/newRequest.form"><spring:message code="patientdatatransfer.createNewRequest" /></a>
 
 <br/><br/>
 

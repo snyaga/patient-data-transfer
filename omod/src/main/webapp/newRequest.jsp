@@ -6,6 +6,76 @@
 
 
 <openmrs:htmlInclude file="/scripts/calendar/calendar.js" />
+<h1>Create New Request</h1>
+
+<br />
+
+<div class='portlet' id='findPatient'>
+
+	<style>
+		#openmrsSearchTable_wrapper{
+			/* Removes the empty space between the widget and the Create New Patient section if the table is short */
+			/* Over ride the value set by datatables */
+			min-height: 0px; height: auto !important;
+		}
+	</style>
+	<script src="/openmrs/dwr/interface/DWRPatientService.js?v=1.9.8-fd241c" type="text/javascript" ></script>
+	<link href="/openmrs/scripts/jquery/dataTables/css/dataTables_jui.css?v=1.9.8-fd241c" type="text/css" rel="stylesheet" />
+	<script src="/openmrs/scripts/jquery/dataTables/js/jquery.dataTables.min.js?v=1.9.8-fd241c" type="text/javascript" ></script>
+	<script src="/openmrs/scripts/jquery-ui/js/openmrsSearch.js?v=1.9.8-fd241c" type="text/javascript" ></script>
+
+
+
+	<script type="text/javascript">
+		var lastSearch;
+		$j(document).ready(function() {
+			new OpenmrsSearch("findPatients", false, doPatientSearch, doSelectionHandler,
+					[	{fieldName:"identifier", header:omsgs.identifier},
+						{fieldName:"givenName", header:omsgs.givenName},
+						{fieldName:"middleName", header:omsgs.middleName},
+						{fieldName:"familyName", header:omsgs.familyName},
+						{fieldName:"age", header:omsgs.age},
+						{fieldName:"gender", header:omsgs.gender},
+						{fieldName:"birthdateString", header:omsgs.birthdate}
+					],
+					{
+						searchLabel: 'Patient Identifier or Patient Name:',
+						searchPlaceholder:'Enter patient name or id',
+						attributes: [
+
+
+
+						]
+
+					});
+
+			//set the focus to the first input box on the page(in this case the text box for the search widget)
+			var inputs = document.getElementsByTagName("input");
+			if(inputs[0])
+				inputs[0].focus();
+
+
+		});
+
+		function doSelectionHandler(index, data) {
+			document.location = "patientDashboard.form?patientId=" + data.patientId + "&phrase=" + lastSearch;
+		}
+
+		//searchHandler for the Search widget
+		function doPatientSearch(text, resultHandler, getMatchCount, opts) {
+			lastSearch = text;
+			DWRPatientService.findCountAndPatients(text, opts.start, opts.length, getMatchCount, resultHandler);
+		}
+
+	</script>
+
+	<div>
+		<b class="boxHeader">Find Patient(s)</b>
+		<div class="box">
+			<div class="searchWidgetContainer" id="findPatients"></div>
+		</div>
+	</div>
+	<br/><br/>
 <div class="box" id="newRequestFormBox"  style="background-color: transparent; ">
 	<h2 class="boxHeader" style="text-align:center; font-size:20px; background-color:#563d7c ">
 		<c:choose>

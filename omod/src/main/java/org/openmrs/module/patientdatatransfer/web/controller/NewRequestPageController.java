@@ -67,16 +67,8 @@ public class NewRequestPageController {
 		// get all the requests for the currently logged in user
 		PatientDataTransferService pdtService = Context.getService(PatientDataTransferService.class);
 		Collection<PatientDataRequest> requests = pdtService.getRequestsByUser(Context.getAuthenticatedUser().getId());
-		// Remove any Incoming Requests which snuck in here
-		// (The same user ID may exist on remote clinic, so we don't want the incoming requests to seem as if they were made here.)
-		Iterator<PatientDataRequest> it = requests.iterator();
-		while (it.hasNext()) {
-			int status = it.next().getStatus();
-			int[] incomingRequestStatuses = {PatientDataTransferService.RECEIVEDBYREMOTECLINIC, PatientDataTransferService.APPROVEDBYREMOTECLINIC, PatientDataTransferService.SENTDENYTOREQUESTINGCLINIC, PatientDataTransferService.RETURNEDTOREQUESTINGCLINIC,PatientDataTransferService.FAILEDTOAUGMENTDATA, PatientDataTransferService.FAILEDTORETURNDATA};
-			// if current status is among incoming requests' statuses, remove them from the collection
-			if (Arrays.binarySearch(incomingRequestStatuses, status) >= 0)
-				it.remove();
-		}
+
+
 		// add these requests to the model, for display on the JSP page
 		model.addAttribute("requests", requests);
 		return new ModelAndView("/module/patientdatatransfer/currentRequests", model);
