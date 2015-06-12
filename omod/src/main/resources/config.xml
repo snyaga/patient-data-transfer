@@ -25,11 +25,18 @@
 		<point>org.openmrs.admin.list</point>
 		<class>${project.parent.groupId}.${project.parent.artifactId}.extension.html.AdminList</class>
 	</extension>
-	
+
+	<!-- Adds link on top nav bar -->
+	<extension>
+		<point>org.openmrs.gutter.tools</point>
+		<class>${project.parent.groupId}.${project.parent.artifactId}.extension.html.GutterListExt</class>
+	</extension>
+
 	<!-- Maps hibernate file's, if present -->
 	<mappingFiles>
 				
 		PatientDataTransfer.hbm.xml
+		PDTClinic.hbm.xml
 				
 	</mappingFiles>
 
